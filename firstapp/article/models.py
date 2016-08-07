@@ -14,5 +14,5 @@ class Comments (models.Model):
 	class Meta ():
 		db_table = 'comments'
 
-	comments_text = models.TextField ()
+	comments_text    = models.TextField  ()
 	comments_article = models.ForeignKey (Article)
