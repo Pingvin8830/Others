@@ -1,1 +1,5 @@
 *.swp
+*.pyc
+'*.pyc'
+firstapp/*/__pycache__/*
+'firstapp/*/__pycache__/*'
