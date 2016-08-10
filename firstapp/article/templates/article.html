@@ -7,10 +7,12 @@
 	<p> {{ article.article_text  }}</p>
 	<hr>
 
-	<p>Комментарии</p>
+	<div class="large-offset-1 large-8 columns">
+		<p>Комментарии</p>
 
-	{% for comment in comments %}
-		<p>{{ comment.comments_text }}</p>
-	{% endfor %}
+		{% for comment in comments %}
+			<p>{{ comment.comments_text }}</p>
+		{% endfor %}
+	</div>
 
 {% endblock %}
