@@ -38,6 +38,7 @@ INSTALLED_APPS = [
 	'django.contrib.messages',
 	'django.contrib.staticfiles',
 	'article',
+	'loginsys',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -59,6 +60,7 @@ TEMPLATES = [
 		'DIRS':    [
 				'/data/git/Others/firstapp/templates',
 				'/data/git/Others/firstapp/article/templates',
+				'/data/git/Others/firstapp/loginsys/templates',
 		],
 		'APP_DIRS': True,
 		'OPTIONS':  {

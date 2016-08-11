@@ -7,6 +7,7 @@ from article.models                 import Article, Comments
 from django.core.exceptions         import ObjectDoesNotExist
 from article.forms                  import CommentForm
 from django.core.context_processors import csrf
+from django.contrib                 import auth
 
 # Create your views here.
 def basic_one (request):
@@ -27,16 +28,20 @@ def template_three_simple (request):
 def articles (request):
 	return render_to_response (
 															'articles.html', 
-															{'articles': Article.objects.all ()}
-														)
+															{
+																'articles': Article.objects.all (),
+																'username': auth.get_user       (request).username,
+															}
+	)
 
 def article (request, article_id = 1):
 	comment_form = CommentForm
 	args = {}
 	args.update (csrf (request))
-	args ['article']  = Article.objects.get    (id                  = article_id)
+	args ['article']  = Article.objects.get     (id                  = article_id)
 	args ['comments'] = Comments.objects.filter (comments_article_id = article_id)
 	args ['form']     = comment_form
+	args ['username'] = auth.get_user           (request).username
 	return render_to_response ('article.html', args)
 
 def addlike (request, article_id):
